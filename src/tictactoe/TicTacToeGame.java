@@ -103,6 +103,64 @@ public class TicTacToeGame {
 			toss="tails";
 		}
 	}
+	public void wintiechange() {
+		if(board.length!=3) {
+			System.out.println("Switch turns");
+		}
+		else {
+			if( (board[0][0]==pchoice) && (board[0][1]==pchoice) && (board[0][2]==pchoice) ) {
+				System.out.println("Player wins");
+			}
+			else if((board[0][0]==pchoice) && (board[1][0]==pchoice) && (board[2][0]==pchoice)) {
+				System.out.println("player wins");
+			}
+			else if((board[0][0]==pchoice) && (board[1][1]==pchoice) && (board[2][2]==pchoice)) {
+				System.out.println("player wins");
+			}
+			else if((board[0][1]==pchoice) && (board[1][1]==pchoice) && (board[2][1]==pchoice)) {
+				System.out.println("player wins");
+			}
+			else if((board[0][2]==pchoice) && (board[1][2]==pchoice) && (board[2][2]==pchoice)) {
+				System.out.println("player wins");
+			}
+			else if((board[0][2]==pchoice) && (board[1][1]==pchoice) && (board[2][0]==pchoice)) {
+				System.out.println("player wins");
+			}
+			else if((board[1][0]==pchoice) && (board[1][1]==pchoice) && (board[1][2]==pchoice)) {
+				System.out.println("player wins");
+			}
+			else if((board[2][0]==pchoice) && (board[2][1]==pchoice) && (board[2][2]==pchoice)) {
+				System.out.println("player wins");
+			}
+			else if((board[0][0]==cchoice) && (board[0][1]==cchoice) && (board[0][2]==cchoice)) {
+				System.out.println("computer wins");
+			}
+			else if((board[0][0]==cchoice) && (board[1][0]==cchoice) && (board[2][0]==cchoice)) {
+				System.out.println("computer wins");
+			}
+			else if((board[0][0]==cchoice) && (board[1][1]==cchoice) && (board[2][2]==cchoice)) {
+				System.out.println("computer wins");
+			}
+			else if((board[0][1]==cchoice) && (board[1][1]==cchoice) && (board[2][1]==cchoice)) {
+				System.out.println("computer wins");
+			}
+			else if((board[0][2]==cchoice) && (board[1][2]==cchoice) && (board[2][2]==cchoice)) {
+				System.out.println("computer wins");
+			}
+			else if((board[0][2]==cchoice) && (board[1][1]==cchoice) && (board[2][0]==cchoice)) {
+				System.out.println("computer wins");
+			}
+			else if((board[1][0]==cchoice) && (board[1][1]==cchoice) && (board[1][2]==cchoice)) {
+				System.out.println("computer wins");
+			}
+			else if((board[2][0]==cchoice) && (board[2][1]==cchoice) && (board[2][2]==cchoice)) {
+				System.out.println("computer wins");
+			}
+			else {
+				System.out.println("Its a tie game");
+			}
+		}
+	}
 	public static void main(String[] args) {
 		System.out.println(".........Welcome to TicTacToeGame.......");
 		TicTacToeGame obj1=new TicTacToeGame();
@@ -110,6 +168,7 @@ public class TicTacToeGame {
 		obj1.playerchoice();
 		obj1.showboard();
 		obj1.playerindex();
+		obj1.wintiechange();
 	}
 
 }
