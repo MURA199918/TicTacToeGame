@@ -3,8 +3,7 @@ import java.util.*;
 
 public class TicTacToeGame {
 	Scanner sc=new Scanner(System.in);
-	public char[] arr=new char[10];
-	public char[][] board=new char[3][3];
+	public char[] board=new char[10];
 	char pchoice,cchoice;
 	public void playerchoice() {
 		System.out.println("Enter player choice");
@@ -25,25 +24,27 @@ public class TicTacToeGame {
 	}
 	public void showboard(){
 		System.out.println("Displaying the current board..");
-		for(int i=1;i<=3;i++){
-			for(int j=1;j<=3;j++){
-				System.out.println(board[i][j]);
-			}
-		}
+		System.out.println("|---|---|---|"); 
+        System.out.println("| " + board[0] + " | " + board[1] + " | " + board[2] + " |"); 
+        System.out.println("|-----------|"); 
+        System.out.println("| " + board[3] + " | " + board[4] + " | " + board[5] + " |"); 
+        System.out.println("|-----------|"); 
+        System.out.println("| " + board[6] + " | " + board[7] + " | " + board[8] + " |"); 
+        System.out.println("|---|---|---|"); 
 	}
 	public void playerindex() {
 		System.out.println("select player index");
 		int pindex=sc.nextInt();
-		if(arr[pindex]==0) {
-			arr[pindex]=pchoice;
+		if(board[pindex]==0) {
+			board[pindex]=pchoice;
 		}
 		else {
 			System.out.println("Invalid player input");
 		}
 		System.out.println("select computer index");
 		int cindex=sc.nextInt();
-		if(arr[cindex]==0) {
-			arr[cindex]=cchoice;
+		if(board[cindex]==0) {
+			board[cindex]=cchoice;
 		}
 		else {
 			System.out.println("Invalid computer input");
