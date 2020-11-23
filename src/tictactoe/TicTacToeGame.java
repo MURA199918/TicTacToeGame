@@ -82,8 +82,64 @@ public class TicTacToeGame {
 		}
 	}
 	public void wintiechange() {
+		int temp=0;
 		if(board.length!=9) {
 			System.out.println("Switch turns");
+		}
+		for (int a = 0; a < 8; a++) { 
+            String line = null; 
+  
+            switch (a) { 
+            case 0: 
+                line = Character.toString(board[0] + board[1] + board[2]); 
+                break; 
+            case 1: 
+                line = Character.toString(board[3] + board[4] + board[5]); 
+                break; 
+            case 2: 
+                line = Character.toString(board[6] + board[7] + board[8]); 
+                break; 
+            case 3: 
+                line = Character.toString(board[0] + board[3] + board[6]); 
+                break; 
+            case 4: 
+                line = Character.toString(board[1] + board[4] + board[7]); 
+                break; 
+            case 5: 
+                line = Character.toString(board[2] + board[5] + board[8]); 
+                break; 
+            case 6: 
+                line = Character.toString(board[0] + board[4] + board[8]); 
+                break; 
+            case 7: 
+                line = Character.toString(board[2] + board[4] + board[6]); 
+                break; 
+            }    
+            //For X winner 
+            if (line.equals("XXX")) { 
+                if(pchoice=='X') {
+                	System.out.println("Player is winner");
+                }
+                else {
+                	System.out.println("Computer is winner");
+                }
+            } 
+              
+            // For O winner 
+            else if (line.equals("OOO")) { 
+                if(pchoice=='O') {
+                	System.out.println("Player is winner");
+                }
+                else {
+                	System.out.println("Computer is winner");
+                }
+            } 
+            else {
+            	temp=1;
+            }
+		}
+		if(temp==1) {
+			System.out.println("Its a tie game");
 		}
 		
 	}
