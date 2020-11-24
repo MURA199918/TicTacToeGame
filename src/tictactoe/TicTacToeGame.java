@@ -51,14 +51,6 @@ public class TicTacToeGame {
 		else {
 			System.out.println("Invalid player input");
 		}
-		System.out.println("select computer index");
-		int cindex=sc.nextInt();
-		if(board[cindex]==' ') {
-			board[cindex]=choice;
-		}
-		else {
-			System.out.println("Invalid computer input");
-		}
 	}
 	
 	public static void main(String[] args) {
