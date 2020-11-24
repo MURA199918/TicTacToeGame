@@ -36,6 +36,7 @@ public class TicTacToeGame {
 		System.out.println(".........Welcome to TicTacToeGame.......");
 		TicTacToeGame obj = new TicTacToeGame();
 		obj.Createboard();
+		obj.playerchoice();
 	}
 
 }
