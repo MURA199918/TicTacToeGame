@@ -9,6 +9,7 @@ public class TicTacToeGame {
 	static char pchoice, choice;
 	static String toss;
 	static String result;
+	static int var=0;
 
 	public void Createboard() { // created board
 		for (int i = 1; i < 10; i++) {
@@ -45,7 +46,6 @@ public class TicTacToeGame {
 	}
 
 	public void playerindex() {
-		if (toss.equals("heads")) {
 			while (true) {
 				System.out.println("Player select your index");
 				int pindex = sc.nextInt();
@@ -60,25 +60,7 @@ public class TicTacToeGame {
 					System.out.println("Invalid player input");
 					continue;
 				}
-			}
-		} else if (toss.equals("tails")) {
-			while (true) {
-				System.out.println("Computer selects it's index");
-				int cindex = rn.nextInt(10) + 1;
-				if (cindex < 1 || cindex > 9) {
-					System.out.println("Invalid Input");
-					continue;
-				} else if (board[cindex] == ' ') {
-					board[cindex] = pchoice;
-					showboard();
-					break;
-				} else {
-					System.out.println("Invalid player input");
-					continue;
-				}
-			}
-		}
-
+			} 
 	}
 
 	public void toss() {
@@ -93,77 +75,105 @@ public class TicTacToeGame {
 	}
 
 	public void wintiechange() {
-		int temp = 0;
-		int var = 0;
-		for (int i = 1; i < 10; i++) {
-			if (board[i] == ' ') {
-				System.out.println("Switch turns");
-				var = 1;
-				break;
+		if( (board[1]=='X' && board[2]=='X' && board[3]=='X') || (board[1]=='O' && board[2]=='O' && board[3]=='O')) {
+			if( (pchoice=='X') || (pchoice=='O')) {
+				System.out.println("Player is winner");
+				result="Win";
+				var=1;
+			}
+			else {
+				System.out.println("Computer is winner");
+				result="Win";
+				var=1;
 			}
 		}
-		if (var != 1) {
-			for (int a = 0; a < 8; a++) {
-				String line = null;
-
-				switch (a) {
-				case 0:
-					line = Character.toString(board[0] + board[1] + board[2]);
-					break;
-				case 1:
-					line = Character.toString(board[3] + board[4] + board[5]);
-					break;
-				case 2:
-					line = Character.toString(board[6] + board[7] + board[8]);
-					break;
-				case 3:
-					line = Character.toString(board[0] + board[3] + board[6]);
-					break;
-				case 4:
-					line = Character.toString(board[1] + board[4] + board[7]);
-					break;
-				case 5:
-					line = Character.toString(board[2] + board[5] + board[8]);
-					break;
-				case 6:
-					line = Character.toString(board[0] + board[4] + board[8]);
-					break;
-				case 7:
-					line = Character.toString(board[2] + board[4] + board[6]);
-					break;
-				}
-				// For X winner
-				if (line.equals("XXX")) {
-					if (pchoice == 'X') {
-						System.out.println("Player is winner");
-						result="Win";
-					}
-					else {
-						System.out.println("Computer is winner");
-						result="Win";
-					}
-				}
-
-				// For O winner
-				else if (line.equals("OOO")) {
-					if (pchoice == 'O') {
-						System.out.println("Player is winner");
-						result="Win";
-					} 
-					else {
-						System.out.println("Computer is winner");
-						result="Win";
-					}
-				} 
-				else {
-					temp = 1;
-				}
+		else if( (board[4]=='X' && board[5]=='X' && board[6]=='X') || (board[4]=='O' && board[5]=='O' && board[6]=='O')){
+			if( (pchoice=='X') || (pchoice=='O')){
+				System.out.println("Player is winner");
+				result="Win";
+				var=1;
+			}
+			else {
+				System.out.println("Computer is winner");
+				result="Win";
+				var=1;
 			}
 		}
-		if (temp == 1) {
-			System.out.println("Its a tie game");
+		else if( (board[7]=='X' && board[8]=='X' && board[9]=='X') || (board[7]=='O' && board[8]=='O' && board[9]=='O')) {
+			if( (pchoice=='X') || (pchoice=='O')) {
+				System.out.println("Player is winner");
+				result="Win";
+				var=1;
+			}
+			else {
+				System.out.println("Computer is winner");
+				result="Win";
+				var=1;
+			}
 		}
-
+		else if( (board[1]=='X' && board[4]=='X' && board[7]=='X') || (board[1]=='O' && board[4]=='O' && board[7]=='O')) {
+			if( (pchoice=='X') || (pchoice=='O')) {
+				System.out.println("Player is winner");
+				result="Win";
+				var=1;
+			}
+			else {
+				System.out.println("Computer is winner");
+				result="Win";
+				var=1;
+			}
+		}
+		else if( (board[2]=='X' && board[5]=='X' && board[8]=='X') || (board[2]=='O' && board[5]=='O' && board[8]=='O')) {
+			if( (pchoice=='X') || (pchoice=='O')) {
+				System.out.println("Player is winner");
+				result="Win";
+				var=1;
+			}
+			else {
+				System.out.println("Computer is winner");
+				result="Win";
+				var=1;
+			}
+		}
+		else if( (board[3]=='X' && board[6]=='X' && board[9]=='X') || (board[3]=='O' && board[6]=='O' && board[9]=='O')) {
+			if( (pchoice=='X') || (pchoice=='O')) {
+				System.out.println("Player is winner");
+				result="Win";
+				var=1;
+			}
+			else {
+				System.out.println("Computer is winner");
+				result="Win";
+				var=1;
+			}
+		}
+		else if( (board[1]=='X' && board[5]=='X' && board[9]=='X') || (board[1]=='O' && board[5]=='O' && board[9]=='O')) {
+			if( (pchoice=='X') || (pchoice=='O')) {
+				System.out.println("Player is winner");
+				result="Win";
+				var=1;
+			}
+			else {
+				System.out.println("Computer is winner");
+				result="Win";
+				var=1;
+			}
+		}
+		else if( (board[3]=='X' && board[5]=='X' && board[7]=='X') || (board[3]=='O' && board[5]=='O' && board[7]=='O')) {
+			if( (pchoice=='X') || (pchoice=='O')) {
+				System.out.println("Player is winner");
+				result="Win";
+				var=1;
+			}
+			else {
+				System.out.println("Computer is winner");
+				result="Win";
+				var=1;
+			}
+		}
+		else {
+			System.out.println("Switch turns");
+		}
 	}
 
 	public static void main(String[] args) {
@@ -174,14 +184,7 @@ public class TicTacToeGame {
 		obj.showboard();
 		obj.toss();
 		obj.playerindex();
-		for(int i=1;i<10;i++) {
-			obj.playerindex();
-			obj.wintiechange();
-			if(result.equals("Win")) {
-				break;
-			}
-		}
-
+		obj.wintiechange();
 	}
 
 }
