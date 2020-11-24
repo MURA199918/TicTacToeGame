@@ -2,76 +2,92 @@ package tictactoe;
 import java.util.*;
 
 public class TicTacToeGame {
-	Scanner sc=new Scanner(System.in);
-	public char[] board=new char[3];
-	char pchoice,cchoice;
-	int pindex,cindex;
-	String toss;
-	public void playerchoice() {
-		if(toss=="heads") {
-		  System.out.println("Enter player choice");
-		  pchoice=sc.next().charAt(0);
-		  if(pchoice!='X' || pchoice!='O') {
-			System.out.println("Invalid player choice");
-		  }
-		  else if(pchoice=='X') {
-			cchoice='O';
+	Scanner sc = new Scanner(System.in);
+	Random rn=new Random();
+	static char[] board = new char[10];
+	static char pchoice, choice;
+	static String toss;
+
+	public void Createboard() { // created board
+		for (int i = 1; i < 10; i++) {
+			board[i] = ' ';
+		}
+		System.out.println("Created board");
+	}
+
+	public void playerchoice() { // player chooses XorO
+		System.out.println("Enter player choice");
+		pchoice = sc.next().charAt(0);
+		if (pchoice == 'X') {
+			choice = '0';
 			System.out.println("Player choice is X");
 			System.out.println("Computer choice is O");
-		  }
-		  else {
-			cchoice='X';
+		} 
+		else if(pchoice=='O') {
+			choice = 'X';
 			System.out.println("Player choice is O");
 			System.out.println("Computer choice is X");
-		  }
 		}
 		else {
-			System.out.println("Enter computer choice");
-			  cchoice=sc.next().charAt(0);
-			  if(cchoice!='X' || cchoice!='O') {
-				System.out.println("Invalid player choice");
-			  }
-			  else if(cchoice=='X') {
-				pchoice='O';
-				System.out.println("Player choice is O");
-				System.out.println("Computer choice is X");
-			  }
-			  else {
-				pchoice='X';
-				System.out.println("Player choice is X");
-				System.out.println("Computer choice is O");
-			  }
+			System.out.println("Invalid input");
 		}
 	}
+
 	public void showboard(){
 		System.out.println("Displaying the current board..");
 		System.out.println("|---|---|---|"); 
-        System.out.println("| " + board[0] + " | " + board[1] + " | " + board[2] + " |"); 
+        System.out.println("| " + board[1] + " | " + board[2] + " | " + board[3] + " |"); 
         System.out.println("|-----------|"); 
-        System.out.println("| " + board[3] + " | " + board[4] + " | " + board[5] + " |"); 
+        System.out.println("| " + board[4] + " | " + board[5] + " | " + board[6] + " |"); 
         System.out.println("|-----------|"); 
-        System.out.println("| " + board[6] + " | " + board[7] + " | " + board[8] + " |"); 
+        System.out.println("| " + board[7] + " | " + board[8] + " | " + board[9] + " |"); 
         System.out.println("|---|---|---|"); 
 	}
+	
 	public void playerindex() {
-		System.out.println("select player index");
-		pindex=sc.nextInt();
-		if(board[pindex]==0) {
-			board[pindex]=pchoice;
+		if(toss.equals("heads")) {
+		   while(true) {
+		      System.out.println("Player select your index");
+		      int pindex=sc.nextInt();
+		      if(pindex<1 || pindex>9) {
+		    	 System.out.println("Invalid Input");
+		    	 continue;
+		      }
+		      else if(board[pindex]==' ') {
+			    board[pindex]=pchoice;
+			    showboard();
+			    break;
+		      }
+		      else {
+			    System.out.println("Invalid player input");
+			    continue;
+		      }
+		   }
 		}
-		else {
-			System.out.println("Invalid player input");
+		else if(toss.equals("tails")) {
+			while(true) {
+			      System.out.println("Computer selects it's index");
+			      int cindex=rn.nextInt(10)+1;
+			      if(cindex<1 || cindex>9) {
+			    	 System.out.println("Invalid Input");
+			    	 continue;
+			      }
+			      else if(board[cindex]==' ') {
+				    board[cindex]=pchoice;
+				    showboard();
+				    break;
+			      }
+			      else {
+				    System.out.println("Invalid player input");
+				    continue;
+			      }
+			}
 		}
-		System.out.println("select computer index");
-		cindex=sc.nextInt();
-		if(board[cindex]==0) {
-			board[cindex]=cchoice;
-		}
-		else {
-			System.out.println("Invalid computer input");
-		}
+
 	}
+	
 	public void toss() {
+		System.out.println("Its toss time");
 		if(Math.random()<0.5) {
 			System.out.println("Its heads and player starts first");
 			toss="heads";
@@ -81,12 +97,16 @@ public class TicTacToeGame {
 			toss="tails";
 		}
 	}
+	
 	public static void main(String[] args) {
 		System.out.println(".........Welcome to TicTacToeGame.......");
-		TicTacToeGame obj1=new TicTacToeGame();
-		obj1.playerchoice();
-		obj1.showboard();
-		obj1.playerindex();
+		TicTacToeGame obj = new TicTacToeGame();
+		obj.Createboard();
+		obj.playerchoice();
+		obj.showboard();
+		obj.toss();
+		obj.playerindex();
+		
 	}
 
 }
