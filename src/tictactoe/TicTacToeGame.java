@@ -21,7 +21,7 @@ public class TicTacToeGame {
 		System.out.println("Enter player choice");
 		pchoice = sc.next().charAt(0);
 		if (pchoice == 'X') {
-			choice = '0';
+			choice = 'O';
 			System.out.println("Player choice is X");
 			System.out.println("Computer choice is O");
 		} else if (pchoice == 'O') {
@@ -45,7 +45,47 @@ public class TicTacToeGame {
 	}
 
 	public void playerindex() {
-		if (toss.equals("heads")) {
+			//while (true) {
+				System.out.println("Player select your index");
+				int pindex = sc.nextInt();
+				if (pindex < 1 || pindex > 9) {
+					System.out.println("Invalid Input");
+					//continue;
+				} else if (board[pindex] == ' ') {
+					board[pindex] = pchoice;
+					showboard();
+					//break;
+				} else {
+					System.out.println("Invalid player input");
+					//continue;
+				}
+			//} 
+	}
+	
+	public void computerindex() {
+		//while (true) {
+			System.out.println("Computer selects it's index");
+			int cindex = rn.nextInt(10) + 1;
+			if (cindex < 1 || cindex > 9) {
+				System.out.println("Invalid Input");
+				//continue;
+			} else if (board[cindex] == ' ') {
+				board[cindex] = choice;
+				showboard();
+				//break;
+			} else {
+				System.out.println("Invalid player input");
+				//continue;
+			}
+		//}
+		
+	}
+
+	public void toss() {
+		System.out.println("Its toss time");
+		if (Math.random() < 0.5) {
+			System.out.println("Its heads and player starts first");
+			toss = "heads";
 			while (true) {
 				System.out.println("Player select your index");
 				int pindex = sc.nextInt();
@@ -61,7 +101,9 @@ public class TicTacToeGame {
 					continue;
 				}
 			}
-		} else if (toss.equals("tails")) {
+		} else {
+			System.out.println("Its tails and computer starts first");
+			toss = "tails";
 			while (true) {
 				System.out.println("Computer selects it's index");
 				int cindex = rn.nextInt(10) + 1;
@@ -69,7 +111,7 @@ public class TicTacToeGame {
 					System.out.println("Invalid Input");
 					continue;
 				} else if (board[cindex] == ' ') {
-					board[cindex] = pchoice;
+					board[cindex] = choice;
 					showboard();
 					break;
 				} else {
@@ -77,18 +119,6 @@ public class TicTacToeGame {
 					continue;
 				}
 			}
-		}
-
-	}
-
-	public void toss() {
-		System.out.println("Its toss time");
-		if (Math.random() < 0.5) {
-			System.out.println("Its heads and player starts first");
-			toss = "heads";
-		} else {
-			System.out.println("Its tails and computer starts first");
-			toss = "tails";
 		}
 	}
 
@@ -174,13 +204,8 @@ public class TicTacToeGame {
 		obj.showboard();
 		obj.toss();
 		obj.playerindex();
-		for(int i=1;i<10;i++) {
-			obj.playerindex();
-			obj.wintiechange();
-			if(result.equals("Win")) {
-				break;
-			}
-		}
+		obj.wintiechange();
+		obj.computerindex();
 
 	}
 
