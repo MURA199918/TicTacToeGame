@@ -47,6 +47,7 @@ public class TicTacToeGame {
 		int pindex=sc.nextInt();
 		if(board[pindex]==' ') {
 			board[pindex]=pchoice;
+			showboard();
 		}
 		else {
 			System.out.println("Invalid player input");
