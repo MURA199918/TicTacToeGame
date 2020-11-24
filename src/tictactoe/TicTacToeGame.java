@@ -4,7 +4,7 @@ public class TicTacToeGame {
 
 	char[] board = new char[10];
 
-	public void Createboard() {
+	public void Createboard() { //created board
 		for (int i = 1; i < 10; i++) {
 			board[i] = ' ';
 		}
