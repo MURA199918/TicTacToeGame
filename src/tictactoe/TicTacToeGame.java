@@ -1,12 +1,12 @@
 package tictactoe;
 
 public class TicTacToeGame {
-	
-	char[] board=new char[10];
-	
-	public void board() {
-		for(int i=1;i<10;i++) {
-			board[i]=' ';
+
+	char[] board = new char[10];
+
+	public void Createboard() {
+		for (int i = 1; i < 10; i++) {
+			board[i] = ' ';
 		}
 		System.out.println("Created board");
 	}
@@ -14,7 +14,7 @@ public class TicTacToeGame {
 	public static void main(String[] args) {
 		System.out.println(".........Welcome to TicTacToeGame.......");
 		TicTacToeGame obj = new TicTacToeGame();
-		obj.board();
+		obj.Createboard();
 	}
 
 }
