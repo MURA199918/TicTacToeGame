@@ -43,14 +43,22 @@ public class TicTacToeGame {
 	}
 	
 	public void playerindex() {
-		System.out.println("select player index");
-		int pindex=sc.nextInt();
-		if(board[pindex]==' ') {
-			board[pindex]=pchoice;
-			showboard();
-		}
-		else {
-			System.out.println("Invalid player input");
+		while(true) {
+		    System.out.println("select player index");
+		    int pindex=sc.nextInt();
+		    if(pindex<1 || pindex>9) {
+		    	System.out.println("Invalid Input");
+		    	continue;
+		    }
+		    else if(board[pindex]==' ') {
+			    board[pindex]=pchoice;
+			    showboard();
+			    break;
+		    }
+		    else {
+			    System.out.println("Invalid player input");
+			    continue;
+		    }
 		}
 	}
 	
