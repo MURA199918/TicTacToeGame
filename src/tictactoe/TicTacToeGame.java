@@ -4,8 +4,8 @@ import java.util.*;
 
 public class TicTacToeGame {
 	Scanner sc = new Scanner(System.in);
-	char[] board = new char[10];
-	char pchoice, choice;
+	static char[] board = new char[10];
+	static char pchoice, choice;
 
 	public void Createboard() { // created board
 		for (int i = 1; i < 10; i++) {
@@ -17,18 +17,18 @@ public class TicTacToeGame {
 	public void playerchoice() { // player chooses XorO
 		System.out.println("Enter player choice");
 		pchoice = sc.next().charAt(0);
-		if (pchoice != 'X' || pchoice != 'O') {
-			System.out.println("Invalid player choice");
-		} 
-		else if (pchoice == 'X') {
+		if (pchoice == 'X') {
 			choice = '0';
 			System.out.println("Player choice is X");
 			System.out.println("Computer choice is O");
 		} 
-		else {
+		else if(pchoice=='O') {
 			choice = 'X';
 			System.out.println("Player choice is O");
 			System.out.println("Computer choice is X");
+		}
+		else {
+			System.out.println("Invalid input");
 		}
 	}
 
