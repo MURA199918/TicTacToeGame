@@ -8,7 +8,6 @@ public class TicTacToeGame {
 	static char[] board = new char[10];
 	static char pchoice, choice;
 	static String toss;
-	static String result;
 	static int var=0;
 
 	public void Createboard() { // created board
@@ -94,99 +93,163 @@ public class TicTacToeGame {
 	}
 
 	public void wintiechange() {
-		if( (board[1]=='X' && board[2]=='X' && board[3]=='X') || (board[1]=='O' && board[2]=='O' && board[3]=='O')) {
-			if( (pchoice=='X') || (pchoice=='O')) {
+		if( (board[1]=='X' && board[2]=='X' && board[3]=='X')) {
+			if( (pchoice=='X')) {
 				System.out.println("Player is winner");
-				result="Win";
 				var=1;
 			}
-			else {
+			else if(choice=='X'){
 				System.out.println("Computer is winner");
-				result="Win";
 				var=1;
 			}
 		}
-		else if( (board[4]=='X' && board[5]=='X' && board[6]=='X') || (board[4]=='O' && board[5]=='O' && board[6]=='O')){
-			if( (pchoice=='X') || (pchoice=='O')){
+		else if(board[1]=='O' && board[2]=='O' && board[3]=='O') {
+			if(pchoice=='O') {
 				System.out.println("Player is winner");
-				result="Win";
 				var=1;
 			}
-			else {
+			else if(choice=='O') {
 				System.out.println("Computer is winner");
-				result="Win";
 				var=1;
 			}
 		}
-		else if( (board[7]=='X' && board[8]=='X' && board[9]=='X') || (board[7]=='O' && board[8]=='O' && board[9]=='O')) {
-			if( (pchoice=='X') || (pchoice=='O')) {
+		else if( (board[4]=='X' && board[5]=='X' && board[6]=='X')){
+			if( (pchoice=='X')){
 				System.out.println("Player is winner");
-				result="Win";
 				var=1;
 			}
-			else {
+			else if(choice=='X'){
 				System.out.println("Computer is winner");
-				result="Win";
 				var=1;
 			}
 		}
-		else if( (board[1]=='X' && board[4]=='X' && board[7]=='X') || (board[1]=='O' && board[4]=='O' && board[7]=='O')) {
-			if( (pchoice=='X') || (pchoice=='O')) {
+		else if((board[4]=='O' && board[5]=='O' && board[6]=='O')) {
+			if(pchoice=='O') {
 				System.out.println("Player is winner");
-				result="Win";
 				var=1;
 			}
-			else {
+			else if(choice=='O') {
 				System.out.println("Computer is winner");
-				result="Win";
 				var=1;
 			}
 		}
-		else if( (board[2]=='X' && board[5]=='X' && board[8]=='X') || (board[2]=='O' && board[5]=='O' && board[8]=='O')) {
-			if( (pchoice=='X') || (pchoice=='O')) {
+		else if( (board[7]=='X' && board[8]=='X' && board[9]=='X')) {
+			if( (pchoice=='X')) {
 				System.out.println("Player is winner");
-				result="Win";
 				var=1;
 			}
-			else {
+			else if(choice=='X'){
 				System.out.println("Computer is winner");
-				result="Win";
 				var=1;
 			}
 		}
-		else if( (board[3]=='X' && board[6]=='X' && board[9]=='X') || (board[3]=='O' && board[6]=='O' && board[9]=='O')) {
-			if( (pchoice=='X') || (pchoice=='O')) {
+		else if((board[7]=='O' && board[8]=='O' && board[9]=='O')) {
+			if(pchoice=='O') {
 				System.out.println("Player is winner");
-				result="Win";
 				var=1;
 			}
-			else {
+			else if(choice=='O') {
 				System.out.println("Computer is winner");
-				result="Win";
 				var=1;
 			}
 		}
-		else if( (board[1]=='X' && board[5]=='X' && board[9]=='X') || (board[1]=='O' && board[5]=='O' && board[9]=='O')) {
-			if( (pchoice=='X') || (pchoice=='O')) {
+		else if( (board[1]=='X' && board[4]=='X' && board[7]=='X')) {
+			if( (pchoice=='X')) {
 				System.out.println("Player is winner");
-				result="Win";
 				var=1;
 			}
-			else {
+			else if(choice=='X') {
 				System.out.println("Computer is winner");
-				result="Win";
 				var=1;
 			}
 		}
-		else if( (board[3]=='X' && board[5]=='X' && board[7]=='X') || (board[3]=='O' && board[5]=='O' && board[7]=='O')) {
-			if( (pchoice=='X') || (pchoice=='O')) {
+		else if((board[1]=='O' && board[4]=='O' && board[7]=='O')) {
+			if(pchoice=='O') {
 				System.out.println("Player is winner");
-				result="Win";
 				var=1;
 			}
-			else {
+			else if(choice=='O') {
 				System.out.println("Computer is winner");
-				result="Win";
+				var=1;
+			}
+		}
+		else if( (board[2]=='X' && board[5]=='X' && board[8]=='X')) {
+			if( (pchoice=='X') ) {
+				System.out.println("Player is winner");
+				var=1;
+			}
+			else if(choice=='X'){
+				System.out.println("Computer is winner");
+				var=1;
+			}
+		}
+		else if((board[2]=='O' && board[5]=='O' && board[8]=='O')) {
+			if(pchoice=='O') {
+				System.out.println("Player is winner");
+				var=1;
+			}
+			else if(choice=='O') {
+				System.out.println("Computer is winner");
+				var=1;
+			}
+		}
+		else if( (board[3]=='X' && board[6]=='X' && board[9]=='X') ) {
+			if( (pchoice=='X') ) {
+				System.out.println("Player is winner");
+				var=1;
+			}
+			else if(choice=='X'){
+				System.out.println("Computer is winner");
+				var=1;
+			}
+		}
+		else if((board[3]=='O' && board[6]=='O' && board[9]=='O')) {
+			if(pchoice=='O') {
+				System.out.println("Player is winner");
+				var=1;
+			}
+			else if(choice=='O') {
+				System.out.println("Computer is winner");
+				var=1;
+			}
+		}
+		else if( (board[1]=='X' && board[5]=='X' && board[9]=='X') ) {
+			if( (pchoice=='X') ) {
+				System.out.println("Player is winner");
+				var=1;
+			}
+			else if(choice=='X'){
+				System.out.println("Computer is winner");
+				var=1;
+			}
+		}
+		else if((board[1]=='O' && board[5]=='O' && board[9]=='O')) {
+			if(pchoice=='O') {
+				System.out.println("Player is winner");
+				var=1;
+			}
+			else if(choice=='O') {
+				System.out.println("Computer is winner");
+				var=1;
+			}
+		}
+		else if( (board[3]=='X' && board[5]=='X' && board[7]=='X') ) {
+			if( (pchoice=='X') ) {
+				System.out.println("Player is winner");
+				var=1;
+			}
+			else if(choice=='X'){
+				System.out.println("Computer is winner");
+				var=1;
+			}
+		}
+		else if((board[3]=='O' && board[5]=='O' && board[7]=='O')) {
+			if(pchoice=='O') {
+				System.out.println("Player is winner");
+				var=1;
+			}
+			else if(choice=='O') {
+				System.out.println("Computer is winner");
 				var=1;
 			}
 		}
@@ -205,7 +268,7 @@ public class TicTacToeGame {
 		obj.toss();
 		int temp=0;
 		if(toss.equals("heads")) {
-			for(int i=1;i<10;i++) {
+			for(int i=1;i<5;i++) {
 				obj.playerindex();
 				obj.wintiechange();
 				if(var==1) {
@@ -220,12 +283,17 @@ public class TicTacToeGame {
 				}
 				temp++;
 			}
-			if(temp==9) {
+			obj.playerindex();
+			obj.wintiechange();
+			if(var!=1) {
+				temp++;
+			}
+			if(temp==5) {
 				System.out.println("Tie game");
 			}
 		}
 		else if(toss.equals("tails")) {
-			for(int i=1;i<10;i++) {
+			for(int i=1;i<5;i++) {
 				obj.computerindex();
 				obj.wintiechange();
 				if(var==1) {
@@ -240,7 +308,12 @@ public class TicTacToeGame {
 				}
 				temp++;
 			}
-			if(temp==9) {
+			obj.computerindex();
+			obj.wintiechange();
+			if(var!=1) {
+				temp++;
+			}
+			if(temp==5) {
 				System.out.println("Tie game");
 			}
 		}
