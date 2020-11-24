@@ -2,38 +2,52 @@ package tictactoe;
 import java.util.*;
 
 public class TicTacToeGame {
-	Scanner sc=new Scanner(System.in);
-	public char[] board=new char[10];
-	public void playerchoice() {
-		System.out.println("Enter player choice");
-		char pchoice=sc.next().charAt(0);
-		if(pchoice!='X' || pchoice!='O') {
-			System.out.println("Invalid player choice");
+	Scanner sc = new Scanner(System.in);
+	static char[] board = new char[10];
+	static char pchoice, choice;
+
+	public void Createboard() { // created board
+		for (int i = 1; i < 10; i++) {
+			board[i] = ' ';
 		}
-		else if(pchoice=='X') {
+		System.out.println("Created board");
+	}
+
+	public void playerchoice() { // player chooses XorO
+		System.out.println("Enter player choice");
+		pchoice = sc.next().charAt(0);
+		if (pchoice == 'X') {
+			choice = '0';
 			System.out.println("Player choice is X");
 			System.out.println("Computer choice is O");
-		}
-		else {
+		} 
+		else if(pchoice=='O') {
+			choice = 'X';
 			System.out.println("Player choice is O");
 			System.out.println("Computer choice is X");
 		}
+		else {
+			System.out.println("Invalid input");
+		}
 	}
+
 	public void showboard(){
 		System.out.println("Displaying the current board..");
 		System.out.println("|---|---|---|"); 
-        System.out.println("| " + board[0] + " | " + board[1] + " | " + board[2] + " |"); 
+        System.out.println("| " + board[1] + " | " + board[2] + " | " + board[3] + " |"); 
         System.out.println("|-----------|"); 
-        System.out.println("| " + board[3] + " | " + board[4] + " | " + board[5] + " |"); 
+        System.out.println("| " + board[4] + " | " + board[5] + " | " + board[6] + " |"); 
         System.out.println("|-----------|"); 
-        System.out.println("| " + board[6] + " | " + board[7] + " | " + board[8] + " |"); 
+        System.out.println("| " + board[7] + " | " + board[8] + " | " + board[9] + " |"); 
         System.out.println("|---|---|---|"); 
 	}
+	
 	public static void main(String[] args) {
 		System.out.println(".........Welcome to TicTacToeGame.......");
-		TicTacToeGame obj1=new TicTacToeGame();
-		obj1.playerchoice();
-		obj1.showboard();
+		TicTacToeGame obj = new TicTacToeGame();
+		obj.Createboard();
+		obj.playerchoice();
+		obj.showboard();
 	}
 
 }
