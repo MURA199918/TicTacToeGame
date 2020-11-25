@@ -75,6 +75,7 @@ public class TicTacToeGame {
 	}
 
 	public void wintiechange() {
+		int k=0;
 		if( (board[1]=='X' && board[2]=='X' && board[3]=='X')) {
 			if( (pchoice=='X')) {
 				System.out.println("Player is winner");
@@ -238,6 +239,16 @@ public class TicTacToeGame {
 		else {
 			System.out.println("Switch turns");
 		}
+		for(int i=1;i<10;i++) {
+			if(board[i]!=' ' && var!=1) {
+				k++;
+			}
+		}
+		if(k==9) {
+			System.out.println("Tie game");
+			var=1;
+		}
+
 	}
 
 	public static void main(String[] args) {
