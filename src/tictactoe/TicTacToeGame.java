@@ -94,7 +94,16 @@ public class TicTacToeGame {
 
 	public void wintiechange() {
 		int k=0;
-		if( (board[1]=='X' && board[2]=='X' && board[3]=='X')) {
+		for(int i=1;i<10;i++) {
+			if(board[i]!=' ' && var!=1) {
+				k++;
+			}
+		}
+		if(k==9) {
+			System.out.println("Tie game");
+			var=1;
+		}
+		else if( (board[1]=='X' && board[2]=='X' && board[3]=='X')) {
 			if( (pchoice=='X')) {
 				System.out.println("Player is winner");
 				var=1;
@@ -254,17 +263,8 @@ public class TicTacToeGame {
 				var=1;
 			}
 		}
-		else {
+		else  {
 			System.out.println("Switch turns");
-		}
-		for(int i=1;i<10;i++) {
-			if(board[i]!=' ' && var!=1) {
-				k++;
-			}
-		}
-		if(k==9) {
-			System.out.println("Tie game");
-			var=1;
 		}
 
 	}
@@ -285,20 +285,20 @@ public class TicTacToeGame {
 				obj.toss();
 				int temp=0;
 				if(toss.equals("heads")) {
-					while(var!=1) {
-						obj.playerindex();
-						obj.wintiechange();
-						obj.computerindex();
-						obj.wintiechange();
-					}
+						while(var!=1) {
+							obj.playerindex();
+							obj.wintiechange();
+							obj.computerindex();
+							obj.wintiechange();
+						}
 				}
 				else if(toss.equals("tails")) {
-					while(var!=1) {
-						obj.computerindex();
-						obj.wintiechange();
-						obj.playerindex();
-						obj.wintiechange();
-					}
+						while(var!=1) {
+							obj.computerindex();
+							obj.wintiechange();
+							obj.playerindex();
+							obj.wintiechange();
+						}
 				}
 				play=1;
 				break;
