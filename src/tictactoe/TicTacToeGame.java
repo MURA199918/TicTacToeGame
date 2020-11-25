@@ -262,59 +262,74 @@ public class TicTacToeGame {
 	public static void main(String[] args) {
 		System.out.println(".........Welcome to TicTacToeGame.......");
 		TicTacToeGame obj = new TicTacToeGame();
-		obj.Createboard();
-		obj.playerchoice();
-		obj.showboard();
-		obj.toss();
-		int temp=0;
-		if(toss.equals("heads")) {
-			for(int i=1;i<5;i++) {
-				obj.playerindex();
-				obj.wintiechange();
-				if(var==1) {
-					break;
-				}
-				else {
-					obj.computerindex();
-					obj.wintiechange();
-					if(var==1){
-						break;
-				    }
-				}
-				temp++;
-			}
-			obj.playerindex();
-			obj.wintiechange();
-			if(var!=1) {
-				temp++;
-			}
-			if(temp==5) {
-				System.out.println("Tie game");
-			}
-		}
-		else if(toss.equals("tails")) {
-			for(int i=1;i<5;i++) {
-				obj.computerindex();
-				obj.wintiechange();
-				if(var==1) {
-					break;
-				}
-				else {
+		Scanner sc=new Scanner(System.in);
+		int play=1;
+		while(play==1) {
+			System.out.println("Do you wanna play a game 1.Yes 2.No");
+			int select=sc.nextInt();
+			switch(select) {
+			case 1:
+				obj.Createboard();
+				obj.playerchoice();
+				obj.showboard();
+				obj.toss();
+				int temp=0;
+				if(toss.equals("heads")) {
+					for(int i=1;i<5;i++) {
+						obj.playerindex();
+						obj.wintiechange();
+						if(var==1) {
+							break;
+						}
+						else {
+							obj.computerindex();
+							obj.wintiechange();
+							if(var==1){
+								break;
+						    }
+						}
+						temp++;
+					}
 					obj.playerindex();
 					obj.wintiechange();
-					if(var==1) {
-						break;
+					if(var!=1) {
+						temp++;
+					}
+					if(temp==5) {
+						System.out.println("Tie game");
 					}
 				}
-				temp++;
-			}
-			obj.computerindex();
-			obj.wintiechange();
-			if(var!=1) {
-				temp++;
-			}
-			if(temp==5) {
-				System.out.println("Tie game");
+				else if(toss.equals("tails")) {
+					for(int i=1;i<5;i++) {
+						obj.computerindex();
+						obj.wintiechange();
+						if(var==1) {
+							break;
+						}
+						else {
+							obj.playerindex();
+							obj.wintiechange();
+							if(var==1) {
+								break;
+							}
+						}
+						temp++;
+					}
+					obj.computerindex();
+					obj.wintiechange();
+					if(var!=1) {
+						temp++;
+					}
+					if(temp==5) {
+						System.out.println("Tie game");
+					}
+				}
+				play=1;
+				break;
+			case 2:
+				System.out.println("Thankyou");
+				play=0;
+				break;
 			}
 		}
 	}
