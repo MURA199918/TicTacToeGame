@@ -9,6 +9,7 @@ public class TicTacToeGame {
 	static char pchoice, choice;
 	static String toss;
 	static int var=0;
+	static int k;
 
 	public void Createboard() { // created board
 		for (int i = 1; i < 10; i++) {
@@ -89,7 +90,6 @@ public class TicTacToeGame {
 	}
 
 	public void wintiechange() {
-		int k=0;
 		for(int i=1;i<10;i++) {
 			if(board[i]!=' ' && var!=1) {
 				k++;
@@ -272,6 +272,8 @@ public class TicTacToeGame {
 		int play=1;
 		while(play==1) {
 			System.out.println("Do you wanna play a game 1.Yes 2.No");
+			var=0;
+			k=0;
 			int select=sc.nextInt();
 			switch(select) {
 			case 1:
@@ -302,7 +304,6 @@ public class TicTacToeGame {
 				play=0;
 				break;
 			}
-			var=0;
 		}
 	}
 }
