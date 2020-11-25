@@ -50,14 +50,12 @@ public class TicTacToeGame {
 				int pindex = sc.nextInt();
 				if (pindex < 1 || pindex > 9) {
 					System.out.println("Invalid Input");
-					continue;
 				} else if (board[pindex] == ' ') {
 					board[pindex] = pchoice;
 					showboard();
 					break;
 				} else {
 					System.out.println("Invalid player input");
-					continue;
 				}
 			} 
 	}
@@ -68,14 +66,12 @@ public class TicTacToeGame {
 			int cindex = rn.nextInt(10) + 1;
 			if (cindex < 1 || cindex > 9) {
 				System.out.println("Invalid Input");
-				continue;
 			} else if (board[cindex] == ' ') {
 				board[cindex] = choice;
 				showboard();
 				break;
 			} else {
 				System.out.println("Invalid player input");
-				continue;
 			}
 		}
 		
@@ -283,7 +279,6 @@ public class TicTacToeGame {
 				obj.playerchoice();
 				obj.showboard();
 				obj.toss();
-				int temp=0;
 				if(toss.equals("heads")) {
 						while(var!=1) {
 							obj.playerindex();
