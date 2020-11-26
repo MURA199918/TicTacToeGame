@@ -298,6 +298,7 @@ public class TicTacToeGame {
 							obj.wintiechange();
 							if(k==9) {
 								System.out.println("Tie game");
+								break;
 							}
 							else {
 								obj.playerindex();
