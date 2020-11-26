@@ -90,16 +90,8 @@ public class TicTacToeGame {
 	}
 
 	public void wintiechange() {
-		for(int i=1;i<10;i++) {
-			if(board[i]!=' ' && var!=1) {
-				k++;
-			}
-		}
-		if(k==9) {
-			System.out.println("Tie game");
-			var=1;
-		}
-		else if( (board[1]=='X' && board[2]=='X' && board[3]=='X')) {
+	
+		if( (board[1]=='X' && board[2]=='X' && board[3]=='X')) {
 			if( (pchoice=='X')) {
 				System.out.println("Player is winner");
 				var=1;
@@ -261,6 +253,7 @@ public class TicTacToeGame {
 		}
 		else  {
 			System.out.println("Switch turns");
+			k++;
 		}
 
 	}
@@ -285,16 +278,35 @@ public class TicTacToeGame {
 						while(var!=1) {
 							obj.playerindex();
 							obj.wintiechange();
-							obj.computerindex();
-							obj.wintiechange();
+							if(k==9) {
+								System.out.println("Tie game");
+								break;
+							}
+							else {
+								obj.computerindex();
+								obj.wintiechange();
+								if(k==9) {
+									System.out.println("Tie game");
+									break;
+								}
+							}
 						}
 				}
 				else if(toss.equals("tails")) {
 						while(var!=1) {
 							obj.computerindex();
 							obj.wintiechange();
-							obj.playerindex();
-							obj.wintiechange();
+							if(k==9) {
+								System.out.println("Tie game");
+							}
+							else {
+								obj.playerindex();
+								obj.wintiechange();
+								if(k==9) {
+									System.out.println("Tie game");
+									break;
+								}
+							}
 						}
 				}
 				play=1;
